@@ -15,28 +15,48 @@
  */
 
 ?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
-        <?= $this->fetch('title') ?>
+      DPMPTSP Bone Bolango | <?= $this->fetch('title') ?>
     </title>
     <?= $this->Html->meta('icon') ?>
 
-    <?= $this->Html->css(['normalize.min', 'milligram.min', 'fonts', 'cake']) ?>
-
+    <?= $this->Html->css(['normalize.min', 'milligram.min', 'fonts', 'cake','panada']) ?>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
+
 </head>
 <body>
+  <div class="top-nav-box">
     <nav class="top-nav">
         <div class="top-nav-title">
-            <a href="<?= $this->Url->build('/') ?>"><span>DPM</span>PTSP <span>Bone Bolango</span></a>
+          <?= $this->Html->image('bb.png',['width'=> 40, 'class'=>'float-left']) ?>
+            <a href="<?= $this->Url->build('/') ?>">  <span> Dinas </span>Penanaman Modal Dan PTSP <span>Bone Bolango</span></a>
         </div>
+        <div class="float-right">
+        <?php
+            if ($identitasuser)
+            {
+                echo"<i class='bi bi-person-circle'></i>";
+                echo ($identitasuser->get('username'));
+                echo $this->Html->link(__('Logout'),['controller'=>'users','action'=>'logout'],['class'=>'loginoutnav']);
+                echo"<i class='bi bi-box-arrow-right'></i>";
+            } else {
+
+              echo $this->Html->link(__('Login'),['controller'=>'users','action'=>'login'],['class'=>'loginoutnav']);
+            }
+         ?>
+       </div>
     </nav>
+  </div>
     <main class="main">
         <div class="container">
             <?= $this->Flash->render() ?>
@@ -45,5 +65,7 @@
     </main>
     <footer>
     </footer>
+
+
 </body>
 </html>

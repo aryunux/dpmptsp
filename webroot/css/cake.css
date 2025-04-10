@@ -33,8 +33,8 @@
 }
 
 .button, button, input[type='button'], input[type='reset'], input[type='submit'] {
-    background-color: var(--color-cakephp-red);
-    border-color: var(--color-cakephp-red);
+    background-color: var(--color-cakephp-blue);
+    border-color: var(--color-cakephp-lightblue);
 }
 
 body {
@@ -112,6 +112,11 @@ th {
 }
 
 /* Nav bar */
+.top-nav-box{
+  background-color: #404041;
+  color: var(--color-white);
+}
+
 .top-nav {
     display: flex;
     align-items: center;
@@ -122,10 +127,10 @@ th {
 }
 .top-nav-title a {
     font-size: 2.4rem;
-    color: var(--color-cakephp-red);
+    color: var(--color-white);
 }
 .top-nav-title span {
-    color: var(--color-cakephp-gray);
+    color: var(--color-cakephp-blue);
 }
 .top-nav-links a {
     margin: 0 0.5rem;

@@ -93,4 +93,12 @@ return function (RouteBuilder $routes): void {
      * });
      * ```
      */
+     $routes->prefix('Admin', function (RouteBuilder $routes) {
+        $routes->fallbacks(DashedRoute::class);
+      });
+
+      $routes->scope('/', function (\Cake\Routing\RouteBuilder $routes) {
+        $routes->setExtensions(['pdf']);
+        // ...
+      });
 };

@@ -1,54 +1,31 @@
-<?php
-/**
- * @var \App\View\AppView $this
- * @var iterable<\App\Model\Entity\Page> $pages
- */
-?>
-<div class="pages index content">
-    <?= $this->Html->link(__('New Page'), ['action' => 'add'], ['class' => 'button float-right']) ?>
-    <h3><?= __('Pages') ?></h3>
-    <div class="table-responsive">
-        <table>
-            <thead>
-                <tr>
-                    <th><?= $this->Paginator->sort('id') ?></th>
-                    <th><?= $this->Paginator->sort('title') ?></th>
-                    <th><?= $this->Paginator->sort('slug') ?></th>
-                    <th><?= $this->Paginator->sort('published') ?></th>
-                    <th><?= $this->Paginator->sort('created') ?></th>
-                    <th><?= $this->Paginator->sort('modified') ?></th>
-                    <th><?= $this->Paginator->sort('user_id') ?></th>
-                    <th class="actions"><?= __('Actions') ?></th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($pages as $page): ?>
-                <tr>
-                    <td><?= $this->Number->format($page->id) ?></td>
-                    <td><?= h($page->title) ?></td>
-                    <td><?= h($page->slug) ?></td>
-                    <td><?= h($page->published) ?></td>
-                    <td><?= h($page->created) ?></td>
-                    <td><?= h($page->modified) ?></td>
-                    <td><?= $page->hasValue('user') ? $this->Html->link($page->user->username, ['controller' => 'Users', 'action' => 'view', $page->user->id]) : '' ?></td>
-                    <td class="actions">
-                        <?= $this->Html->link(__('View'), ['action' => 'view', $page->id]) ?>
-                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $page->id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $page->id], ['confirm' => __('Are you sure you want to delete # {0}?', $page->id)]) ?>
-                    </td>
-                </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+
+<header class="bg-indigo bg-gradient text-white">
+    <div class="container px-4 text-center">
+        <?= $this->Html->image('bb.png',['width'=> 150]) ?>
+        <h3 class="fw-bolder">Dinas Penanaman Modal dan PTSP</h3>
+        <p class="lead">Kabupaten Bone Bolango</p>
+        <a class="btn btn-lg btn-light" href="#penelitian">Permohonan Izin Penelitian!</a>
     </div>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
-        </ul>
-        <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
+</header>
+<!-- About section-->
+<section id="penelitian">
+    <div class="container px-4">
+        <div class="row gx-4 justify-content-center">
+            <div class="col-lg-8">
+                <h2>Izin Penelitian</h2>
+                <p class="lead">Syarat Izin Penelitian:</p>
+                <ul>
+                    <li>Melakukan pendaftaran pada media yang disediakan</li>
+                    <li>Surat Permohonan dan atau Pengantar dari Lembaga/Universitas/Perguruan Tinggi</li>
+                    <li>Surat Pernyataan Kesesuaian/Kebenaran Informasi</li>
+                    <li>Pasfoto 3x4 (2 lembar)</li>
+                    <li>Dokumen pendukung (misalnya: KTM)</li>
+                </ul>
+                <?= $this->Html->link(__('DAFTAR Sekarang'),['controller'=>'users','action'=>'register'],['class'=>'btn btn-primary']) ?>
+            </div>
+            <div class="col-md-4">
+                <?= $this->Html->image('research.jpg',['width'=> 400, 'class'=>'float-left']) ?>
+            </div>
+        </div>
     </div>
-</div>
+</section>

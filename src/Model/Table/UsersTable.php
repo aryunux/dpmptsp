@@ -11,8 +11,7 @@ use Cake\Validation\Validator;
 /**
  * Users Model
  *
- * @property \App\Model\Table\ArticlesTable&\Cake\ORM\Association\HasMany $Articles
- * @property \App\Model\Table\PagesTable&\Cake\ORM\Association\HasMany $Pages
+ * @property \App\Model\Table\ProfilesTable&\Cake\ORM\Association\HasOne $Profiles
  *
  * @method \App\Model\Entity\User newEmptyEntity()
  * @method \App\Model\Entity\User newEntity(array $data, array $options = [])
@@ -47,11 +46,10 @@ class UsersTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
-
-        $this->hasMany('Articles', [
+        $this->hasOne('Profiles', [
             'foreignKey' => 'user_id',
         ]);
-        $this->hasMany('Pages', [
+        $this->hasMany('Research', [
             'foreignKey' => 'user_id',
         ]);
     }

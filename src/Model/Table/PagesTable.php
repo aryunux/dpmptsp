@@ -63,13 +63,13 @@ class PagesTable extends Table
     {
         $validator
             ->scalar('title')
-            ->maxLength('title', 150)
+            ->maxLength('title', 191)
             ->requirePresence('title', 'create')
             ->notEmptyString('title');
 
         $validator
             ->scalar('slug')
-            ->maxLength('slug', 100)
+            ->maxLength('slug', 191)
             ->requirePresence('slug', 'create')
             ->notEmptyString('slug')
             ->add('slug', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
