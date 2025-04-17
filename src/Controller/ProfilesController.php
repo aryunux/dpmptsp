@@ -42,6 +42,7 @@ class ProfilesController extends AppController
      */
     public function add()
     {
+        $this->Authorization->skipAuthorization();
         $profile = $this->Profiles->newEmptyEntity();
         if ($this->request->is('post')) {
             $profile = $this->Profiles->patchEntity($profile, $this->request->getData());

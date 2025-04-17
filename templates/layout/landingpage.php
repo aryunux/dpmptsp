@@ -7,7 +7,7 @@
         <meta name="author" content="" />
 
         <title>
-            <?= $this->fetch('title') ?>
+            DPMPTSP Bone Bolango | <?= $this->fetch('title') ?>
         </title>
         <?= $this->Html->meta('icon') ?>
 
